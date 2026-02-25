@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-Hant">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Tea-Vision 茶飲數據分析系統 - 主頁導覽</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec9213",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                        "surface-dark": "#2d2316",
+                        "surface-highlight": "#3a2e1d",
+                        "text-secondary": "#c9b292",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #221a10; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a2e1d; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec9213; 
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(236, 146, 19, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 flex items-center justify-between border-b border-surface-highlight bg-surface-dark/95 backdrop-blur-sm px-6 py-4 lg:px-10">
+        <div class="flex items-center gap-4">
+            <div class="size-10 text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-4xl">emoji_food_beverage</span>
+            </div>
+            <h1 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Tea-Vision 頁面導覽</h1>
+        </div>
+        <div class="hidden lg:flex items-center gap-8">
+            <a class="text-text-secondary hover:text-primary transition-colors text-base font-medium" href="#pages">頁面導覽</a>
+            <a class="text-text-secondary hover:text-primary transition-colors text-base font-medium" href="#about">關於系統</a>
+        </div>
+        <button class="lg:hidden text-text-secondary">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="px-6 py-16 md:px-12 lg:px-20 lg:py-24 bg-gradient-to-b from-background-dark to-surface-dark">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex flex-col gap-8">
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm md:text-base">Tea-Vision 數據分析系統</span>
+                <h1 class="text-white text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-[-0.033em]">
+                    三大核心頁面<br/>
+                    <span class="text-primary">一站式導覽</span>
+                </h1>
+                <h2 class="text-text-secondary text-lg md:text-2xl font-normal leading-relaxed max-w-3xl mx-auto">
+                    點擊下方卡片即可進入對應的功能頁面，體驗完整的 Tea-Vision 數據分析系統。
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pages Navigation Section -->
+    <section id="pages" class="px-6 py-20 md:px-12 lg:px-20 bg-background-dark">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Page 1: Customer Churn Insights Dashboard -->
+                <div class="card-hover flex flex-col rounded-2xl border border-surface-highlight bg-surface-dark overflow-hidden h-full">
+                    <div class="p-8 flex-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-3xl">analytics</span>
+                            </div>
+                            <div>
+                                <span class="inline-flex items-center rounded-md bg-primary/10 px-3 py-1 text-xs font-medium text-primary">主頁</span>
+                                <h3 class="text-white text-2xl font-bold mt-2">顧客流失洞察儀表板</h3>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                            深入分析留存趨勢，識別高風險客戶，並部署針對性策略，讓您的茶飲愛好者持續回訪。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                <span>流失預警信號分析</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                <span>顧客分群詳細報告</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                <span>APP 數位影響力分析</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 border-t border-surface-highlight bg-surface-highlight/20">
+                        <a href="customer_churn_insights_dashboard/code.html" class="flex items-center justify-center gap-3 w-full rounded-lg h-12 bg-primary hover:bg-orange-600 text-[#221b11] font-bold transition-all">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                            進入顧客流失洞察儀表板
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Page 2: Risk Scoring and Action Tool -->
+                <div class="card-hover flex flex-col rounded-2xl border border-surface-highlight bg-surface-dark overflow-hidden h-full">
+                    <div class="p-8 flex-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="size-14 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
+                                <span class="material-symbols-outlined text-3xl">shield_with_heart</span>
+                            </div>
+                            <div>
+                                <span class="inline-flex items-center rounded-md bg-red-500/10 px-3 py-1 text-xs font-medium text-red-400">第二頁</span>
+                                <h3 class="text-white text-2xl font-bold mt-2">風險評估與行動工具</h3>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                            分析顧客流失機率並採取即時的數據驅動行動，提供個性化的挽留策略與建議。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-red-400 text-sm">check_circle</span>
+                                <span>流失機率分析詳情</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-red-400 text-sm">check_circle</span>
+                                <span>顧客個人檔案與聯絡</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-red-400 text-sm">check_circle</span>
+                                <span>行動建議清單與執行</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 border-t border-surface-highlight bg-surface-highlight/20">
+                        <a href="risk_scoring_and_action_tool/code2.html" class="flex items-center justify-center gap-3 w-full rounded-lg h-12 bg-red-500 hover:bg-red-600 text-white font-bold transition-all">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                            進入風險評估與行動工具
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Page 3: Tea Vision Hero Overview -->
+                <div class="card-hover flex flex-col rounded-2xl border border-surface-highlight bg-surface-dark overflow-hidden h-full">
+                    <div class="p-8 flex-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="size-14 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                <span class="material-symbols-outlined text-3xl">visibility</span>
+                            </div>
+                            <div>
+                                <span class="inline-flex items-center rounded-md bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400">第三頁</span>
+                                <h3 class="text-white text-2xl font-bold mt-2">產品首頁與功能總覽</h3>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                            展示 Tea-Vision 的核心價值與功能特色，提供產品介紹與數據驅動決策的優勢說明。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span>
+                                <span>產品特色與價值主張</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span>
+                                <span>核心功能模組介紹</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-text-secondary">
+                                <span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span>
+                                <span>客戶案例與成果展示</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 border-t border-surface-highlight bg-surface-highlight/20">
+                        <a href="tea_vision_hero_overview_landing_page/code3.html" class="flex items-center justify-center gap-3 w-full rounded-lg h-12 bg-blue-500 hover:bg-blue-600 text-white font-bold transition-all">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                            進入產品首頁與總覽
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="px-6 py-20 md:px-12 lg:px-20 bg-surface-dark">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-white text-3xl md:text-4xl lg:text-5xl font-black mb-6">關於 Tea-Vision 系統</h2>
+                <p class="text-text-secondary text-lg md:text-xl max-w-3xl mx-auto">
+                    Tea-Vision 是一個專為茶飲店設計的數據分析平台，幫助經營者透過數據驅動決策，提升客戶留存率與營收。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-surface-highlight/10 rounded-2xl p-8 border border-surface-highlight">
+                    <div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-3xl">analytics</span>
+                    </div>
+                    <h3 class="text-white text-2xl font-bold mb-4">數據分析</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        利用先進的機器學習模型，分析客戶消費行為，預測流失風險，提供精準的經營洞察。
+                    </p>
+                </div>
+                
+                <div class="bg-surface-highlight/10 rounded-2xl p-8 border border-surface-highlight">
+                    <div class="size-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6">
+                        <span class="material-symbols-outlined text-3xl">shield_with_heart</span>
+                    </div>
+                    <h3 class="text-white text-2xl font-bold mb-4">風險管理</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        主動識別高風險客戶，提供個性化的挽留策略，從被動應對轉為主動預防。
+                    </p>
+                </div>
+                
+                <div class="bg-surface-highlight/10 rounded-2xl p-8 border border-surface-highlight">
+                    <div class="size-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6">
+                        <span class="material-symbols-outlined text-3xl">dashboard</span>
+                    </div>
+                    <h3 class="text-white text-2xl font-bold mb-4">可視化儀表板</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        直觀的數據可視化界面，將複雜的經營數據轉化為易懂的圖表，幫助快速決策。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-surface-highlight bg-background-dark py-12 px-6 md:px-12 lg:px-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="size-10 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl">emoji_food_beverage</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white text-xl font-bold">Tea-Vision 數據分析系統</h3>
+                        <p class="text-text-secondary text-sm">專為茶飲店設計的智能經營平台</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-6">
+                    <a href="customer_churn_insights_dashboard/code.html" class="text-text-secondary hover:text-primary transition-colors">顧客流失洞察儀表板</a>
+                    <a href="risk_scoring_and_action_tool/code2.html" class="text-text-secondary hover:text-primary transition-colors">風險評估與行動工具</a>
+                    <a href="tea_vision_hero_overview_landing_page/code3.html" class="text-text-secondary hover:text-primary transition-colors">產品首頁與功能總覽</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-surface-highlight mt-8 pt-8 text-center">
+                <p class="text-text-secondary text-sm">© 2024 Tea-Vision 數據分析系統. 版權所有.</p>
+                <p class="text-text-secondary text-xs mt-2">本系統為茶飲店經營者提供數據驅動的決策支持</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
