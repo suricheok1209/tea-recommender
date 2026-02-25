@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tea-Vision 數據洞察儀表板 (1280x1877)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec9213",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                        "surface-dark": "#2d2316",
+                        "surface-highlight": "#3a2e1d",
+                        "text-secondary": "#c9b292",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                    },
+                    maxWidth: {
+                        'screen-xl': '1280px',
+                    },
+                    screens: {
+                        '3xl': '1800px',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #221a10; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a2e1d; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec9213; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex overflow-hidden">
+<aside class="w-64 bg-surface-dark border-r border-surface-highlight flex-col hidden lg:flex h-screen sticky top-0 shrink-0 z-50">
+<div class="h-16 flex items-center gap-3 px-6 border-b border-surface-highlight">
+<div class="size-8 text-primary shrink-0">
+<span class="material-symbols-outlined text-[32px]">emoji_food_beverage</span>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Tea-Vision</h2>
+</div>
+<nav class="flex-1 overflow-y-auto py-6 px-3 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-white hover:bg-surface-highlight rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium">儀表板</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-highlight/50 text-white border-l-2 border-primary rounded-r-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary">analytics</span>
+<span class="text-sm font-medium">數據洞察</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-white hover:bg-surface-highlight rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">groups</span>
+<span class="text-sm font-medium">顧客列表</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-white hover:bg-surface-highlight rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">campaign</span>
+<span class="text-sm font-medium">行銷活動</span>
+</a>
+<div class="my-2 border-t border-surface-highlight/50 mx-3"></div>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-white hover:bg-surface-highlight rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">設定</span>
+</a>
+</nav>
+<div class="p-4 border-t border-surface-highlight">
+<div class="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-surface-highlight cursor-pointer transition-colors">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 ring-1 ring-surface-highlight" role="img" aria-label="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCad8I8SUwVAFmaRRuQ8B42lxN0mme6LhVikVBABpFAYMIxpJR36eLnN2ZbpLzsB7TBGk315N2hCb0kji7TmpMKNAm6gFTUySVsxfKuAD2eGs3s05r9cIYUOtiD4ZUeEa7prqGVzgxOeatO-Yx1cg9DmJDZjELJR81YuTPcvfv-1dEIDgkOVgtznoaljyglBw46ay8YD-Gw3x5pd7X5i7tqwU9DjwpLIeD-FuXs0EFS8wZGOrx_TTNKVWb_-Q7ebX-s0VR_jxL4OmF2");'></div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-white truncate">店長 Admin</p>
+<p class="text-xs text-text-secondary truncate">admin@teavision.com</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-surface-highlight bg-surface-dark px-6 py-3 shrink-0 lg:hidden">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-[32px]">emoji_food_beverage</span>
+</div>
+<h2 class="text-white text-xl font-bold lg:hidden">Tea-Vision</h2>
+</div>
+<button class="text-text-secondary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<header class="hidden lg:flex items-center justify-between border-b border-surface-highlight bg-surface-dark/50 backdrop-blur px-8 py-3 shrink-0 z-40 sticky top-0">
+<label class="flex flex-col min-w-40 !h-10 w-96">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-surface-highlight/50 border border-transparent focus-within:border-primary transition-colors">
+<div class="text-text-secondary flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden bg-transparent text-white focus:outline-0 focus:ring-0 border-none h-full placeholder:text-text-secondary px-3 text-sm font-normal leading-normal" placeholder="搜尋洞察數據、顧客ID..." value=""/>
+</div>
+</label>
+<div class="flex items-center gap-4">
+<button class="text-text-secondary hover:text-white transition-colors relative p-2 rounded-full hover:bg-surface-highlight">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-surface-dark"></span>
+</button>
+<button class="text-text-secondary hover:text-white transition-colors p-2 rounded-full hover:bg-surface-highlight">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto overflow-x-hidden p-6 lg:p-10 w-full mx-auto relative">
+<div class="max-w-[1024px] mx-auto pb-10">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 mb-10">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-3xl lg:text-4xl font-black leading-tight tracking-tight">顧客流失洞察儀表板</h1>
+<p class="text-text-secondary text-base lg:text-lg font-normal max-w-2xl">
+                        深入分析留存趨勢，識別高風險客戶，並部署針對性策略，讓您的茶飲愛好者持續回訪。
+                    </p>
+</div>
+<div class="flex items-center gap-3 w-full lg:w-auto">
+<button class="flex-1 lg:flex-none justify-center flex items-center gap-2 px-5 py-2.5 bg-surface-highlight hover:bg-surface-dark border border-surface-highlight hover:border-text-secondary text-text-secondary rounded-lg transition-all text-sm font-medium">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                        過去 30 天
+                    </button>
+<button class="flex-1 lg:flex-none justify-center flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-orange-600 text-white rounded-lg transition-all text-sm font-bold shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        匯出報告
+                    </button>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<section class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">warning</span>
+<h2 class="text-white text-xl font-bold">流失預警信號 (Churn Signals)</h2>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="bg-surface-dark rounded-xl p-6 border border-surface-highlight hover:border-primary/30 transition-colors group flex flex-col h-[480px]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-text-secondary text-sm font-medium mb-1">回訪率趨勢分析 (60 天)</p>
+<h3 class="text-white text-3xl font-bold">-12% <span class="text-red-500 text-lg font-medium ml-2">顯著下降</span></h3>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="bg-red-500/10 text-red-400 px-3 py-1.5 rounded text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+                                        5% vs 上個月
+                                    </div>
+<p class="text-xs text-text-secondary">基準線: 去年同期</p>
+</div>
+</div>
+<div class="flex-1 w-full relative min-h-0 bg-surface-highlight/10 rounded-lg p-4">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 300">
+<line stroke="#3a2e1d" stroke-width="1" x1="0" x2="800" y1="280" y2="280"></line>
+<line stroke="#3a2e1d" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="210" y2="210"></line>
+<line stroke="#3a2e1d" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="140" y2="140"></line>
+<line stroke="#3a2e1d" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="70" y2="70"></line>
+<path d="M0 80 Q 200 80, 300 140 T 600 220 T 800 260 V 280 H 0 Z" fill="url(#gradientChartLarge)" opacity="0.3"></path>
+<path d="M0 80 Q 200 80, 300 140 T 600 220 T 800 260" fill="none" stroke="#ec9213" stroke-linecap="round" stroke-width="4"></path>
+<circle cx="0" cy="80" fill="#ec9213" r="6"></circle>
+<circle cx="300" cy="140" fill="#ec9213" r="6"></circle>
+<circle cx="600" cy="220" fill="#ec9213" r="6"></circle>
+<circle cx="800" cy="260" fill="#ec9213" r="6"></circle>
+<g transform="translate(600, 160)">
+<line stroke="#ec9213" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="0" y1="-20" y2="60"></line>
+<rect fill="#221a10" height="40" rx="6" stroke="#ec9213" stroke-width="1" width="100" x="-50" y="-60"></rect>
+<text fill="white" font-size="12" text-anchor="middle" x="0" y="-42">第 45 天</text>
+<text fill="#ec9213" font-size="14" font-weight="bold" text-anchor="middle" x="0" y="-26">回訪率 42%</text>
+</g>
+<defs>
+<linearGradient id="gradientChartLarge" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ec9213"></stop>
+<stop offset="100%" stop-color="#221a10" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-sm text-text-secondary font-medium px-2 border-t border-surface-highlight pt-3">
+<span>第 1 天 (起始)</span>
+<span>第 15 天</span>
+<span>第 30 天</span>
+<span>第 45 天</span>
+<span>第 60 天 (截止)</span>
+</div>
+</div>
+<div class="bg-surface-dark rounded-xl p-6 border border-surface-highlight hover:border-primary/30 transition-colors flex flex-col h-[400px]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-text-secondary text-sm font-medium mb-1">流失風險熱力圖 (時段與星期)</p>
+<h3 class="text-white text-2xl font-bold">平日下午 2PM - 4PM <span class="text-text-secondary text-lg font-normal ml-2">最高風險時段</span></h3>
+</div>
+<div class="bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">shield</span>
+                                    建議：發送下午茶優惠券
+                                </div>
+</div>
+<div class="flex-1 grid grid-cols-7 gap-1">
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Mon</div>
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Tue</div>
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Wed</div>
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Thu</div>
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Fri</div>
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Sat</div>
+<div class="col-span-1 text-xs text-text-secondary flex items-center justify-center">Sun</div>
+<div class="h-12 rounded bg-surface-highlight/30 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-surface-highlight/30 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-surface-highlight/30 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-surface-highlight/30 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-surface-highlight/50 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-yellow-500/20 hover:bg-yellow-500/40 cursor-pointer" title="Medium Risk"></div>
+<div class="h-12 rounded bg-yellow-500/20 hover:bg-yellow-500/40 cursor-pointer" title="Medium Risk"></div>
+<div class="h-12 rounded bg-yellow-500/40 hover:bg-yellow-500/60 cursor-pointer" title="Medium Risk"></div>
+<div class="h-12 rounded bg-yellow-500/40 hover:bg-yellow-500/60 cursor-pointer" title="Medium Risk"></div>
+<div class="h-12 rounded bg-yellow-500/40 hover:bg-yellow-500/60 cursor-pointer" title="Medium Risk"></div>
+<div class="h-12 rounded bg-orange-500/50 hover:bg-orange-500/70 cursor-pointer" title="High Risk"></div>
+<div class="h-12 rounded bg-orange-500/60 hover:bg-orange-500/80 cursor-pointer" title="High Risk"></div>
+<div class="h-12 rounded bg-surface-highlight/50 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-surface-highlight/50 hover:bg-surface-highlight cursor-pointer" title="Low Risk"></div>
+<div class="h-12 rounded bg-red-500/60 hover:bg-red-500/80 cursor-pointer relative group" title="Very High Risk">
+<div class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-dark border border-surface-highlight px-2 py-1 rounded text-xs text-white z-10 whitespace-nowrap shadow-lg">高流失風險</div>
+</div>
+<div class="h-12 rounded bg-red-500/70 hover:bg-red-500/90 cursor-pointer"></div>
+<div class="h-12 rounded bg-red-500/80 hover:bg-red-500/90 cursor-pointer border border-red-500"></div>
+<div class="h-12 rounded bg-red-500/70 hover:bg-red-500/90 cursor-pointer"></div>
+<div class="h-12 rounded bg-red-500/60 hover:bg-red-500/80 cursor-pointer"></div>
+<div class="h-12 rounded bg-yellow-500/30 hover:bg-yellow-500/50 cursor-pointer"></div>
+<div class="h-12 rounded bg-yellow-500/30 hover:bg-yellow-500/50 cursor-pointer"></div>
+<div class="h-12 rounded bg-surface-highlight/40 hover:bg-surface-highlight cursor-pointer"></div>
+<div class="h-12 rounded bg-surface-highlight/40 hover:bg-surface-highlight cursor-pointer"></div>
+<div class="h-12 rounded bg-surface-highlight/40 hover:bg-surface-highlight cursor-pointer"></div>
+<div class="h-12 rounded bg-surface-highlight/40 hover:bg-surface-highlight cursor-pointer"></div>
+<div class="h-12 rounded bg-orange-500/40 hover:bg-orange-500/60 cursor-pointer"></div>
+<div class="h-12 rounded bg-orange-500/40 hover:bg-orange-500/60 cursor-pointer"></div>
+<div class="h-12 rounded bg-orange-500/30 hover:bg-orange-500/50 cursor-pointer"></div>
+</div>
+<div class="flex justify-between mt-3 px-1 text-xs text-text-secondary">
+<span>上午 (9-11)</span>
+<span>午間 (11-14)</span>
+<span class="text-white font-bold">下午 (14-17)</span>
+<span>晚間 (17-21)</span>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col h-[520px]">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">groups</span>
+<h2 class="text-white text-xl font-bold">顧客分群詳細報告 (Customer Segments)</h2>
+</div>
+<div class="flex gap-2">
+<button class="text-text-secondary text-sm px-3 py-1 hover:bg-surface-highlight rounded transition-colors">篩選</button>
+<button class="text-primary text-sm font-medium hover:text-white px-3 py-1 border border-primary/30 rounded hover:bg-primary/10 transition-colors">查看全部清單</button>
+</div>
+</div>
+<div class="bg-surface-dark rounded-xl border border-surface-highlight overflow-hidden flex-1 flex flex-col shadow-lg">
+<div class="overflow-x-auto h-full custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 z-10 bg-surface-dark shadow-md">
+<tr class="border-b border-surface-highlight bg-surface-highlight/30">
+<th class="p-5 text-xs font-bold text-text-secondary uppercase tracking-wider whitespace-nowrap">分群名稱</th>
+<th class="p-5 text-xs font-bold text-text-secondary uppercase tracking-wider whitespace-nowrap">人數佔比</th>
+<th class="p-5 text-xs font-bold text-text-secondary uppercase tracking-wider whitespace-nowrap">平均客單價 (AOV)</th>
+<th class="p-5 text-xs font-bold text-text-secondary uppercase tracking-wider whitespace-nowrap">留存率</th>
+<th class="p-5 text-xs font-bold text-text-secondary uppercase tracking-wider whitespace-nowrap">推薦策略</th>
+<th class="p-5 text-xs font-bold text-text-secondary uppercase tracking-wider text-right whitespace-nowrap">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-highlight overflow-y-auto">
+<tr class="group hover:bg-surface-highlight/20 transition-colors h-20">
+<td class="p-5">
+<div class="flex items-center gap-4 min-w-[200px]">
+<div class="size-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-500 shrink-0 ring-1 ring-emerald-500/30">
+<span class="material-symbols-outlined text-xl">diamond</span>
+</div>
+<div>
+<p class="text-white font-bold text-base">高價值忠實客</p>
+<p class="text-emerald-400 text-xs mt-0.5">Top 5%</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-white text-base">12% <span class="text-xs text-text-secondary ml-1">(245人)</span></td>
+<td class="p-5 text-white text-base font-mono">$45.20</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-highlight rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 w-[95%]"></div>
+</div>
+<span class="text-sm text-emerald-400">95%</span>
+</div>
+</td>
+<td class="p-5">
+<span class="inline-flex items-center rounded-md bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-400 ring-1 ring-inset ring-emerald-400/20 whitespace-nowrap">
+                                                VIP 專屬新品試飲
+                                            </span>
+</td>
+<td class="p-5 text-right">
+<button class="text-text-secondary hover:text-white p-2 rounded-full hover:bg-surface-highlight">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-highlight/20 transition-colors h-20">
+<td class="p-5">
+<div class="flex items-center gap-4 min-w-[200px]">
+<div class="size-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 shrink-0 ring-1 ring-red-500/30">
+<span class="material-symbols-outlined text-xl">warning</span>
+</div>
+<div>
+<p class="text-white font-bold text-base">高風險流失客</p>
+<p class="text-red-400 text-xs mt-0.5">30+ 天未消費</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-white text-base">28% <span class="text-xs text-text-secondary ml-1">(580人)</span></td>
+<td class="p-5 text-white text-base font-mono">$12.50</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-highlight rounded-full overflow-hidden">
+<div class="h-full bg-red-500 w-[20%]"></div>
+</div>
+<span class="text-sm text-red-400">20%</span>
+</div>
+</td>
+<td class="p-5">
+<span class="inline-flex items-center rounded-md bg-red-400/10 px-3 py-1.5 text-xs font-medium text-red-400 ring-1 ring-inset ring-red-400/20 whitespace-nowrap">
+                                                買一送一挽回券
+                                            </span>
+</td>
+<td class="p-5 text-right">
+<button class="text-text-secondary hover:text-white p-2 rounded-full hover:bg-surface-highlight">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-highlight/20 transition-colors h-20">
+<td class="p-5">
+<div class="flex items-center gap-4 min-w-[200px]">
+<div class="size-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 shrink-0 ring-1 ring-blue-500/30">
+<span class="material-symbols-outlined text-xl">coffee</span>
+</div>
+<div>
+<p class="text-white font-bold text-base">高頻低消客</p>
+<p class="text-blue-400 text-xs mt-0.5">每週 3+ 次</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-white text-base">35% <span class="text-xs text-text-secondary ml-1">(720人)</span></td>
+<td class="p-5 text-white text-base font-mono">$5.50</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-highlight rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 w-[85%]"></div>
+</div>
+<span class="text-sm text-blue-400">85%</span>
+</div>
+</td>
+<td class="p-5">
+<span class="inline-flex items-center rounded-md bg-blue-400/10 px-3 py-1.5 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-400/20 whitespace-nowrap">
+                                                甜點加購推廣
+                                            </span>
+</td>
+<td class="p-5 text-right">
+<button class="text-text-secondary hover:text-white p-2 rounded-full hover:bg-surface-highlight">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-highlight/20 transition-colors h-20">
+<td class="p-5">
+<div class="flex items-center gap-4 min-w-[200px]">
+<div class="size-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-500 shrink-0 ring-1 ring-purple-500/30">
+<span class="material-symbols-outlined text-xl">person_add</span>
+</div>
+<div>
+<p class="text-white font-bold text-base">新客探索者</p>
+<p class="text-purple-400 text-xs mt-0.5">&lt; 14 天</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-white text-base">15% <span class="text-xs text-text-secondary ml-1">(310人)</span></td>
+<td class="p-5 text-white text-base font-mono">$8.75</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-highlight rounded-full overflow-hidden">
+<div class="h-full bg-purple-500 w-[60%]"></div>
+</div>
+<span class="text-sm text-purple-400">60%</span>
+</div>
+</td>
+<td class="p-5">
+<span class="inline-flex items-center rounded-md bg-purple-400/10 px-3 py-1.5 text-xs font-medium text-purple-400 ring-1 ring-inset ring-purple-400/20 whitespace-nowrap">
+                                                APP 下載引導
+                                            </span>
+</td>
+<td class="p-5 text-right">
+<button class="text-text-secondary hover:text-white p-2 rounded-full hover:bg-surface-highlight">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="flex flex-col h-[400px]">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-2xl">smartphone</span>
+<h2 class="text-white text-xl font-bold">APP 數位影響力 (APP Effect)</h2>
+</div>
+<div class="bg-surface-dark rounded-xl p-8 border border-surface-highlight h-full relative overflow-hidden flex flex-col lg:flex-row gap-8 items-center">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl -ml-5 -mb-5 pointer-events-none"></div>
+<div class="flex-1 z-10 w-full lg:w-1/2">
+<h3 class="text-text-secondary font-medium text-sm uppercase tracking-wider mb-2">會員流失率比較</h3>
+<div class="flex items-end gap-6 mb-8">
+<p class="text-white text-6xl font-black">-15%</p>
+<p class="text-lg font-normal text-text-secondary mb-3">APP會員流失率顯著低於普通顧客</p>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-red-400">非 APP 用戶流失率</span>
+<span class="text-sm font-bold text-white">22%</span>
+</div>
+<div class="w-full bg-surface-highlight rounded-full h-4 overflow-hidden">
+<div class="bg-red-500/80 h-full rounded-full w-[22%] relative overflow-hidden stripe-pattern"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-emerald-400 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                                            APP 會員流失率
+                                        </span>
+<span class="text-sm font-bold text-white">7%</span>
+</div>
+<div class="w-full bg-surface-highlight rounded-full h-4 overflow-hidden">
+<div class="bg-emerald-500 h-full rounded-full w-[7%] shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden lg:block w-px h-full bg-surface-highlight/50"></div>
+<div class="flex-1 w-full lg:w-1/2 flex flex-col justify-center h-full z-10">
+<div class="bg-surface-highlight/20 rounded-2xl p-6 border border-surface-highlight/50 backdrop-blur-sm">
+<div class="flex items-start gap-4 mb-4">
+<div class="bg-primary/20 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined text-[24px]">lightbulb</span>
+</div>
+<div>
+<h4 class="text-white text-lg font-bold mb-1">營收增長機會</h4>
+<p class="text-text-secondary text-sm leading-relaxed">
+                                            若能引導 <strong class="text-white">10%</strong> 更多顧客下載 APP，預計每月可挽回 <span class="text-primary font-bold text-lg mx-1">$4,200</span> 的流失營收。APP 推播通知的開啟率為 Email 的 3 倍。
+                                        </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-2">
+<button class="py-3 px-4 bg-primary hover:bg-orange-600 text-white text-sm font-bold rounded-lg transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+                                        啟動 APP 推廣活動
+                                    </button>
+<button class="py-3 px-4 bg-transparent border border-surface-highlight hover:border-text-secondary text-text-secondary hover:text-white text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                                        查看推廣詳情
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
