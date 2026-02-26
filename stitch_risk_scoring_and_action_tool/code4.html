@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>客戶流失風險評估·色調統一版</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#558B2F",
+                        "primary-hover": "#4a7a29",
+                        "primary-light": "#DCEDC8", 
+                        "background-light": "#F1F8E9",
+                        "background-dark": "#181e14",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#232920",
+                        "danger": "#D84315",
+                        "warning": "#FBC02D",
+                        "success": "#388E3C",
+                        "border-green": "#DCEDC8"
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-green dark:border-slate-800 bg-surface-light dark:bg-surface-dark px-10 py-4 shadow-sm">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-100">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">emoji_food_beverage</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] flex items-baseline gap-2 text-primary">
+                茶言觀色 <span class="text-xs font-normal text-slate-500 dark:text-slate-400">v1.1</span>
+</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-9 px-4 hover:bg-primary-light/30 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors">
+<span class="material-symbols-outlined mr-2 text-[18px]">help</span>
+<span class="truncate">幫助文檔</span>
+</button>
+<div class="h-9 w-[1px] bg-border-green dark:bg-slate-700 mx-1"></div>
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-primary-light flex items-center justify-center text-primary font-bold text-sm border border-primary/20">
+                    M
+                </div>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[960px] mx-auto px-4 py-8 md:py-12 flex flex-col gap-8">
+<div class="text-center space-y-2 mb-4">
+<h1 class="text-3xl md:text-4xl font-bold text-primary dark:text-white">客戶流失風險評估</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg">輸入客戶數據，即時獲取 AI 分析報告與挽留建議</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-green dark:border-slate-800 p-6 md:p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">input</span>
+                            評估參數
+                        </h3>
+<button class="text-sm text-slate-500 hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span> 清空重填
+                        </button>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">姓名 (Name)</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">person</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="例: 王小明" type="text" value="王小明"/>
+</div>
+</label>
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">性別 (Gender)</span>
+<div class="flex gap-4 items-center h-[50px] px-2">
+<label class="inline-flex items-center gap-2 cursor-pointer group">
+<input class="form-radio text-primary focus:ring-primary/50 border-slate-300" name="gender" type="radio" value="male"/>
+<span class="text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">男</span>
+</label>
+<label class="inline-flex items-center gap-2 cursor-pointer group">
+<input checked="" class="form-radio text-primary focus:ring-primary/50 border-slate-300" name="gender" type="radio" value="female"/>
+<span class="text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">女</span>
+</label>
+<label class="inline-flex items-center gap-2 cursor-pointer group">
+<input class="form-radio text-primary focus:ring-primary/50 border-slate-300" name="gender" type="radio" value="other"/>
+<span class="text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">其他</span>
+</label>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">聯絡電話 (Phone)</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">call</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="0912-345-678" type="tel" value="0912-345-678"/>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">常用門店 (Store)</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">storefront</span>
+<select class="w-full pl-10 pr-10 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none transition-all text-slate-900 dark:text-white">
+<option>台北信義店</option>
+<option>台中公益店</option>
+<option>高雄巨蛋店</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined pointer-events-none">expand_more</span>
+</div>
+</label>
+</div>
+<div class="h-px bg-border-green dark:bg-slate-700/50 w-full"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">客戶編號 (ID)</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">badge</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="例: CUST001" type="text" value="CUST001"/>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">會員等級 (Level)</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px]">stars</span>
+<select class="w-full pl-10 pr-10 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none transition-all text-slate-900 dark:text-white">
+<option>金卡會員</option>
+<option>銀卡會員</option>
+<option>普通會員</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined pointer-events-none">expand_more</span>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">年齡 (Age)</span>
+<input class="w-full px-4 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="25" type="number" value="28"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">平均客單價 (Avg)</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 font-bold">NT$</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="0.00" type="number" value="150"/>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">月消費頻率 (Freq)</span>
+<input class="w-full px-4 py-3 rounded-lg border border-border-green dark:border-slate-700 bg-background-light/50 dark:bg-black/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" type="number" value="2"/>
+</label>
+<label class="flex flex-col gap-2 relative">
+<div class="flex justify-between">
+<span class="text-sm font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">priority_high</span> 
+                                        距上次到店天數
+                                    </span>
+</div>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border-2 border-primary/30 dark:border-primary/30 bg-primary/5 dark:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white font-medium" type="number" value="45"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-primary font-bold text-sm">Days</span>
+</div>
+</label>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-border-green dark:border-slate-800">
+<button class="w-full bg-primary hover:bg-primary-hover text-white font-bold py-4 px-6 rounded-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.01] active:scale-[0.99]">
+<span class="material-symbols-outlined animate-spin hidden">progress_activity</span>
+<span class="material-symbols-outlined">analytics</span>
+                            開始評估 (Start Assessment)
+                        </button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-green dark:border-slate-800 p-6 md:p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-danger/10 to-transparent rounded-bl-full pointer-events-none"></div>
+<h3 class="text-lg font-bold flex items-center gap-2 mb-6 text-primary">
+<span class="material-symbols-outlined">monitoring</span>
+                        評估結果
+                    </h3>
+<div class="flex flex-col items-center justify-center py-4 relative">
+<div class="relative w-48 h-24 overflow-hidden mb-4">
+<div class="absolute top-0 left-0 w-48 h-48 rounded-full border-[16px] border-border-green dark:border-slate-800 box-border"></div>
+<div class="absolute top-0 left-0 w-48 h-48 rounded-full border-[16px] border-transparent border-t-danger border-r-danger transform rotate-[-45deg] box-border" style="clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); transform: rotate(135deg);"></div>
+<div class="absolute bottom-0 left-1/2 w-1 h-24 bg-slate-300 origin-bottom transform rotate-[45deg] z-10 rounded-full"></div>
+</div>
+<div class="text-center mt-[-10px]">
+<div class="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">78.5<span class="text-2xl text-slate-400">%</span></div>
+<div class="text-sm font-medium text-slate-500 mt-1">流失概率 (Churn Probability)</div>
+</div>
+<div class="mt-6 flex items-center gap-2 px-4 py-1.5 bg-danger/10 text-danger rounded-full border border-danger/20">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="text-sm font-bold">高風險 (High Risk)</span>
+</div>
+</div>
+<div class="mt-6 p-4 bg-background-light dark:bg-slate-800/50 rounded-lg border border-border-green dark:border-slate-700">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-danger mt-0.5">error</span>
+<div>
+<h4 class="text-sm font-bold text-slate-800 dark:text-slate-200">主要風險來源</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">距上次到店天數過久 (45天)，遠高於平均回購週期 (14天)。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-primary/10 to-primary-light/30 rounded-xl shadow-sm border border-primary/20 p-6 md:p-8">
+<h3 class="text-lg font-bold flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">lightbulb</span>
+                        智能建議 (Action)
+                    </h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 bg-white dark:bg-surface-dark p-4 rounded-lg shadow-sm border border-primary/10">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined">confirmation_number</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">發送無門檻回歸券</h4>
+<p class="text-xs text-slate-500">建議面額：NT$ 50</p>
+</div>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-surface-dark p-4 rounded-lg shadow-sm border border-primary/10">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined">sms</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">短信關懷</h4>
+<p class="text-xs text-slate-500">模板：老友回歸關懷</p>
+</div>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-border-green dark:border-slate-800 bg-surface-light dark:bg-surface-dark py-6 px-10">
+<div class="max-w-[960px] mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">database</span>
+<span>Data Source: Colab Analytics v2.3</span>
+</div>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">隱私政策</a>
+<a class="hover:text-primary transition-colors" href="#">技術支持</a>
+<span class="opacity-50">© 2023 茶言觀色 Inc.</span>
+</div>
+</div>
+</footer>
+
+</body></html>
